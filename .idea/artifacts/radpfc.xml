@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="radpfc">
+    <output-path>$USER_HOME$/Desktop/out</output-path>
+    <root id="archive" name="radpfc.jar">
+      <element id="directory" name="com">
+        <element id="directory" name="atcsibir">
+          <element id="directory" name="filter">
+            <element id="file-copy" path="$PROJECT_DIR$/target/classes/com/atcsibir/filter/RequestCatcher.class" />
+            <element id="file-copy" path="$PROJECT_DIR$/target/classes/com/atcsibir/filter/XmlTools.class" />
+          </element>
+        </element>
+      </element>
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-io/commons-io/2.4/commons-io-2.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
