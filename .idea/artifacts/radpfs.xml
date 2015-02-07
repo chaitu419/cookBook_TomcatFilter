@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="radpfs">
+    <output-path>$USER_HOME$/Desktop/out</output-path>
+    <root id="archive" name="radpfs.jar">
+      <element id="directory" name="com">
+        <element id="directory" name="atcsibir">
+          <element id="directory" name="filter">
+            <element id="file-copy" path="$PROJECT_DIR$/target/classes/com/atcsibir/filter/FrameTools.class" />
+            <element id="file-copy" path="$PROJECT_DIR$/target/classes/com/atcsibir/filter/MassXmlSign.class" />
+          </element>
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
