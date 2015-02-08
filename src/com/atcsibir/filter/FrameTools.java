@@ -12,7 +12,7 @@ public class FrameTools
 	{
 		private static JButton folderChooser; // кнопка ФайлЧузера (Указываем путь до директории с соапами)
 		private static JButton goSign; // мегабаттон (запускает сценарий подписи)
-		private static JLabel soapsFolderLabel; // Лейбл с путем до директории с соапами
+		public static JLabel soapsFolderLabel; // Лейбл с путем до директории с соапами
 		public static JTextField mnemonicCode;
 		public static JTextField mnemonicName;
 		public static JTextField oktmo;
@@ -95,13 +95,13 @@ public class FrameTools
 				{
 					public void actionPerformed(ActionEvent e)
 						{
-							JFileChooser fileopen = new JFileChooser();
-							fileopen.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); // опция позволяющая указывать только путь по директории
+							JFileChooser dirOpen = new JFileChooser();
+							dirOpen.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); // опция позволяющая указывать только путь по директории
 
-							int ret = fileopen.showDialog(null, "Выбрать");
+							int ret = dirOpen.showDialog(null, "Выбрать");
 							if (ret == JFileChooser.APPROVE_OPTION)
 								{
-									File file = fileopen.getSelectedFile();
+									File file = dirOpen.getSelectedFile();
 									soapsFolderLabel.setText(file.getAbsolutePath());
 								}
 						}
@@ -111,7 +111,10 @@ public class FrameTools
 				{
 					public void actionPerformed(ActionEvent e)
 						{
-							oktmo.setText("sychka");
+							if (FilesHandler.formValidate())
+								{
+									FilesHandler.startSigning(new File(FilesHandler.soapsFolderLabel).listFiles()); // погнали подписывать
+								}
 						}
 				});
 			}

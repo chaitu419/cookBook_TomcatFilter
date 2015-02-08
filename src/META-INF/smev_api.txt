@@ -1,0 +1,11 @@
+http://smev.gosuslugi.ru/portal/api/services/verifySignature ({"message":"TYT_BUDET_SOAP","actor":"http://smev.gosuslugi.ru/actors/smev"})
+http://smev.gosuslugi.ru/portal/api/services/flcApply ({"message":"TYT_BUDET_SOAP","configId":"rev111111_2.4.5"} {"message":"TYT_BUDET_SOAP","configId":"rev120315_2.5.6"})
+
+{"certificate":null,"error":{"errorCode":0,"errorMessage":null}}
+{"error":{"errorCode":0,"errorMessage":null}}
+
+{"certificate":null,"error":{"errorCode":3,"errorMessage":"Неверная ЭП сообщения"}}
+{"error":{"errorCode":0,"errorMessage":null}}
+
+{"certificate":null,"error":{"errorCode":3,"errorMessage":"Неверная ЭП сообщения"}}
+{"error":{"errorCode":2000,"errorMessage":"Сообщение не прошло ФЛК [Валидация запроса по МР 2.5.5].\nНайдены ошибки:\nНеверное количество вхождения элемента [/soap:Envelope/soap:Body/*[1]/smev:MessageData], требуется минимум [1]\n"}}

@@ -50,7 +50,7 @@ public class XmlTools
 				return response;
 			}
 
-		private static String getCurrentTime() // генерит текущее вермя для ноды smev:Message / smev:Date
+		public static String getCurrentTime() // генерит текущее вермя для ноды smev:Message / smev:Date
 			{
 				return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS").format(Calendar.getInstance().getTime());
 			}
