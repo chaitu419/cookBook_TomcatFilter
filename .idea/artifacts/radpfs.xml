@@ -7,12 +7,19 @@
           <element id="directory" name="filter">
             <element id="file-copy" path="$PROJECT_DIR$/target/classes/com/atcsibir/filter/FrameTools.class" />
             <element id="file-copy" path="$PROJECT_DIR$/target/classes/com/atcsibir/filter/MassXmlSign.class" />
+            <element id="file-copy" path="$PROJECT_DIR$/target/classes/com/atcsibir/filter/FrameTools$1.class" />
+            <element id="file-copy" path="$PROJECT_DIR$/target/classes/com/atcsibir/filter/FrameTools$2.class" />
+            <element id="file-copy" path="$PROJECT_DIR$/target/classes/com/atcsibir/filter/KeyStoreTools.class" />
           </element>
         </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
       </element>
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/jaxen/jaxen/1.1.6/jaxen-1.1.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/santuario/xmlsec/2.0.2/xmlsec-2.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
