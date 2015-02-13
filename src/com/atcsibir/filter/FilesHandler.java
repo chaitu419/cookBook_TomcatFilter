@@ -57,10 +57,10 @@ public class FilesHandler
 				cryptoProJcpTokenPassword = ft.cryptoProJcpTokenPassword.getText();
 
 				if (soapsFolderLabel.equals("")) {errorMessage = errorMessage + "Папка с соапами\n"; isValid = false;}
-				//if (mnemonicCode.equals("")) {errorMessage = errorMessage + "Код мнемоники\n"; isValid = false;}
-				//if (mnemonicName.equals("")) {errorMessage = errorMessage + "Наименование мнемоники\n"; isValid = false;}
-				//if (oktmo.equals("")) {errorMessage = errorMessage + "ОКТМО\n"; isValid = false;}
-				//if (cryptoProJcpTokenPassword.equals("")) {errorMessage = errorMessage + "JCP ключ (пароль)\n"; isValid = false;}
+				if (mnemonicCode.equals("")) {errorMessage = errorMessage + "Код мнемоники\n"; isValid = false;}
+				if (mnemonicName.equals("")) {errorMessage = errorMessage + "Наименование мнемоники\n"; isValid = false;}
+				if (oktmo.equals("")) {errorMessage = errorMessage + "ОКТМО\n"; isValid = false;}
+				if (cryptoProJcpTokenPassword.equals("")) {errorMessage = errorMessage + "JCP ключ (пароль)\n"; isValid = false;}
 
 				if (!isValid) JOptionPane.showMessageDialog(null, errorMessage);
 

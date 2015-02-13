@@ -86,6 +86,11 @@ public class FrameTools
 
 				initListeners();
 
+				mnemonicCode.setText("00000541");
+				mnemonicName.setText("MAIS");
+				oktmo.setText("50701000");
+				cryptoProJcpTokenPassword.setText("1");
+
 				rootFrame.setVisible(true);
 			}
 
@@ -114,6 +119,8 @@ public class FrameTools
 							if (FilesHandler.formValidate())
 								{
 									FilesHandler.startSigning(new File(FilesHandler.soapsFolderLabel).listFiles()); // погнали подписывать
+
+									JOptionPane.showMessageDialog(null, "Done!");
 								}
 						}
 				});

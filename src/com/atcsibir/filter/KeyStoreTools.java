@@ -1,6 +1,7 @@
 package com.atcsibir.filter;
 
 import javax.swing.JOptionPane;
+import javax.xml.bind.DatatypeConverter;
 import java.io.*;
 import java.security.*;
 import java.security.cert.*;
@@ -37,6 +38,34 @@ public class KeyStoreTools
 					{
 						JOptionPane.showMessageDialog(null, "Не найдены исполняемые классы CryptoPro JCP");
 					}
+			}
+
+		public static PrivateKey getCryptoProJcpPrivateKey() // закрытый ключ Крипто-ПРО JCP
+			{
+				String alias = FrameTools.cryptoProJcpTokensList.getSelectedItem().toString();
+				PrivateKey privateKey = null;
+
+				try
+					{
+						privateKey = (PrivateKey) cryptoProJcpKeyStore.getKey(alias, FrameTools.cryptoProJcpTokenPassword.getPassword());
+					}
+				catch (KeyStoreException e){JOptionPane.showMessageDialog(null, e.getMessage());}catch (NoSuchAlgorithmException e){JOptionPane.showMessageDialog(null, e.getMessage());}catch (UnrecoverableKeyException e){JOptionPane.showMessageDialog(null, e.getMessage());}
+
+				return privateKey;
+			}
+
+		public static String getCryptoProJcpPublicKey () // открытый ключ Крипто-ПРО JCP
+			{
+				String alias = FrameTools.cryptoProJcpTokensList.getSelectedItem().toString();
+				X509Certificate cert;
+				String publicKey = null;
+				try
+					{
+						cert = (X509Certificate) cryptoProJcpKeyStore.getCertificate(alias);
+						publicKey = DatatypeConverter.printBase64Binary(cert.getEncoded()); // возвращаем base64 строку с открытым сертификатом
+					}
+				catch (KeyStoreException e){JOptionPane.showMessageDialog(null, e.getMessage());}catch (CertificateEncodingException e){JOptionPane.showMessageDialog(null, e.getMessage());}
+				return publicKey;
 			}
 
 		private static Class hasCryptoProJcp() // Проверяем, установлено ли CryptoPro JCP

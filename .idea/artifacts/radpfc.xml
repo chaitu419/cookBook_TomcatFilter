@@ -6,7 +6,6 @@
         <element id="directory" name="atcsibir">
           <element id="directory" name="filter">
             <element id="file-copy" path="$PROJECT_DIR$/target/classes/com/atcsibir/filter/RequestCatcher.class" />
-            <element id="file-copy" path="$PROJECT_DIR$/target/classes/com/atcsibir/filter/XmlTools.class" />
           </element>
         </element>
       </element>
