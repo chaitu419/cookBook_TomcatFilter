@@ -31,7 +31,7 @@ public class KeyStoreTools
 										ft.cryptoProJcpTokensList.addItem(currentToken);
 									}
 							}
-						catch (KeyStoreException e){JOptionPane.showMessageDialog(null, "KeyStoreTools.InitKeyStores(). CryproPro JCP. KeyStoreException.");}catch (CertificateException e){JOptionPane.showMessageDialog(null, "KeyStoreTools.InitKeyStores(). CryproPro JCP. CertificateException.");}catch (NoSuchAlgorithmException e){JOptionPane.showMessageDialog(null, "KeyStoreTools.InitKeyStores(). CryproPro JCP. NoSuchAlgorithmException.");}catch (IOException e){JOptionPane.showMessageDialog(null, "KeyStoreTools.InitKeyStores(). CryproPro JCP. IOException.");}
+						catch (KeyStoreException e){JOptionPane.showMessageDialog(null, e.getMessage());}catch (CertificateException e){JOptionPane.showMessageDialog(null, e.getMessage());}catch (NoSuchAlgorithmException e){JOptionPane.showMessageDialog(null, e.getMessage());}catch (IOException e){JOptionPane.showMessageDialog(null, e.getMessage());}
 					}
 				else
 					{

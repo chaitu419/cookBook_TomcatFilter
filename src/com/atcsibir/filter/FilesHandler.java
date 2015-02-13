@@ -25,13 +25,16 @@ public class FilesHandler
 										if (FilenameUtils.getExtension(nextFile.getAbsolutePath()).equals("xml"))
 											{
 												InputStream is = SignTools.sign(nextFile);
-												FileOutputStream fos = new FileOutputStream(nextFile);
-												IOUtils.copy(is, fos);
-												fos.close();
+												if (is != null)
+													{
+														FileOutputStream fos = new FileOutputStream(nextFile);
+														IOUtils.copy(is, fos);
+														fos.close();
+													}
 												is.close();
 											}
 									}
-								catch (FileNotFoundException e) {e.printStackTrace();} catch (IOException e) {e.printStackTrace();}
+								catch (FileNotFoundException e) {JOptionPane.showMessageDialog(null, e.getMessage());} catch (IOException e) {JOptionPane.showMessageDialog(null, e.getMessage());}
 							}
 						else if (nextFile.isDirectory())
 							{

@@ -28,7 +28,7 @@ public class FrameTools
 				rootFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				rootFrame.setResizable(false); // делаем размер окна фиксированным
 
-				try {UIManager.setLookAndFeel(new NimbusLookAndFeel());} catch (UnsupportedLookAndFeelException e) {}
+				try {UIManager.setLookAndFeel(new NimbusLookAndFeel());} catch (UnsupportedLookAndFeelException e) {JOptionPane.showMessageDialog(null, e.getMessage());}
 
 				/* Создаем основные элементы апплета */
 
