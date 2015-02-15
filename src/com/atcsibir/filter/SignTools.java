@@ -23,7 +23,7 @@ public class SignTools
 
 				try
 					{
-						String soap = IOUtils.toString(new FileInputStream(nextFile));
+						String soap = IOUtils.toString(new FileInputStream(nextFile), "UTF-8");
 
 						soap = soap.replace("REPLACE_TO_MNEMONIC_CODE", FilesHandler.mnemonicCode)
 								.replace("REPLACE_TO_MNEMONIC_NAME", FilesHandler.mnemonicName)
@@ -55,7 +55,7 @@ public class SignTools
 						soapHeaderNode.clearContent(); // удаляем предыдущую подпись
 						soapHeaderNode.add(wsseSecurity); // втыкаем блок с подписью
 
-						signedXml = IOUtils.toInputStream(new String(DatatypeConverter.parseHexBinary("EFBBBF")) + soap); // TODO кодировка строки из jTextField'a
+						signedXml = IOUtils.toInputStream(document.asXML(), "UTF-8");
 					}
 				catch (FileNotFoundException e) {JOptionPane.showMessageDialog(null, e.getMessage());} catch (IOException e) {JOptionPane.showMessageDialog(null, e.getMessage());}
 
@@ -85,7 +85,7 @@ public class SignTools
 				MessageDigest digestDriver = null;
 				try
 					{
-						digestDriver = MessageDigest.getInstance("GOST3411"); // , "CryptoProvider"
+						digestDriver = MessageDigest.getInstance("GOST3411");
 					}
 				catch (NoSuchAlgorithmException e){JOptionPane.showMessageDialog(null, e.getMessage());} // catch (NoSuchProviderException e){JOptionPane.showMessageDialog(null, e.getMessage());}
 				digestDriver.update(soapMessage);
