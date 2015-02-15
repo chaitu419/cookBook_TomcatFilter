@@ -25,6 +25,7 @@ public class FilesHandler
 										if (FilenameUtils.getExtension(nextFile.getAbsolutePath()).equals("xml"))
 											{
 												InputStream is = SignTools.sign(nextFile);
+
 												if (is != null)
 													{
 														FileOutputStream fos = new FileOutputStream(nextFile);

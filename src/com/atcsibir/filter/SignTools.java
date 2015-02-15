@@ -9,14 +9,11 @@ import javax.xml.bind.DatatypeConverter;
 import java.io.UnsupportedEncodingException;
 import java.security.*;
 
-import java.security.PrivateKey;
 import org.apache.commons.io.IOUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-
-import javax.swing.JOptionPane;
 
 public class SignTools
 	{
@@ -53,21 +50,20 @@ public class SignTools
 						digestValueNode.addText(digestValue); // втыкаем в ноду значение хэша
 						String signatureValue = getSignatureValue(signedInfoNode.asXML()); // получаем значение ЭЦП
 						signatureValueNode.addText(signatureValue); // втыкаем значение эцп
-						binarySecurityTokenNode.addText(KeyStoreTools.getCryptoProJcpPublicKey()); // втыкаем открытый ключ
+						binarySecurityTokenNode.addText(FrameTools.publicKey); // втыкаем открытый ключ
 
 						soapHeaderNode.clearContent(); // удаляем предыдущую подпись
 						soapHeaderNode.add(wsseSecurity); // втыкаем блок с подписью
 
+						signedXml = IOUtils.toInputStream(new String(DatatypeConverter.parseHexBinary("EFBBBF")) + soap); // TODO кодировка строки из jTextField'a
 					}
 				catch (FileNotFoundException e) {JOptionPane.showMessageDialog(null, e.getMessage());} catch (IOException e) {JOptionPane.showMessageDialog(null, e.getMessage());}
-
 
 				return signedXml;
 			}
 
 		private static String getSignatureValue(String soapPart) // метод, рассчитавающий значение ЭЦП
 			{
-				PrivateKey pk = KeyStoreTools.getCryptoProJcpPrivateKey(); // получаем значение закрытого ключа
 				String canonicalizedSoapPart = XmlTools.getCanonicalizedXml(soapPart); // каноникализируем соап
 				String signatureValue = null;
 				Signature signatureDriver;
@@ -75,7 +71,7 @@ public class SignTools
 					{
 						signatureDriver = Signature.getInstance("GOST3411withGOST3410EL");
 
-						signatureDriver.initSign(pk);
+						signatureDriver.initSign(FrameTools.privateKey);
 						signatureDriver.update(canonicalizedSoapPart.getBytes("UTF-8"));
 						signatureValue = DatatypeConverter.printBase64Binary(signatureDriver.sign());
 					}

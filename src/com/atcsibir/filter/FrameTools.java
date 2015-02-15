@@ -4,9 +4,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.security.PrivateKey;
 
 import javax.swing.*;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+import javax.xml.bind.DatatypeConverter;
 
 public class FrameTools
 	{
@@ -18,6 +20,9 @@ public class FrameTools
 		public static JTextField oktmo;
 		public static JComboBox cryptoProJcpTokensList; // Селект со списком токенов Крипто-ПРО
 		public static JPasswordField cryptoProJcpTokenPassword;
+
+		public static String publicKey; // публичный ключ
+		public static PrivateKey privateKey; // закрытый ключ
 
 		public FrameTools()
 			{
@@ -87,7 +92,7 @@ public class FrameTools
 				initListeners();
 
 				mnemonicCode.setText("00000541");
-				mnemonicName.setText("MAIS");
+				mnemonicName.setText("ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮйцукенгшщзхъфывапролджэячсмитьбю");
 				oktmo.setText("50701000");
 				cryptoProJcpTokenPassword.setText("1");
 
@@ -118,8 +123,13 @@ public class FrameTools
 						{
 							if (FilesHandler.formValidate())
 								{
-									FilesHandler.startSigning(new File(FilesHandler.soapsFolderLabel).listFiles()); // погнали подписывать
 
+									/* Создаем экземпляры ключей */
+
+									publicKey = KeyStoreTools.getCryptoProJcpPublicKey();
+									privateKey = KeyStoreTools.getCryptoProJcpPrivateKey();
+
+									FilesHandler.startSigning(new File(FilesHandler.soapsFolderLabel).listFiles()); // погнали подписывать
 									JOptionPane.showMessageDialog(null, "Done!");
 								}
 						}
