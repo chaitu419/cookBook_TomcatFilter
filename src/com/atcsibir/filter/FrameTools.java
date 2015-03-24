@@ -91,10 +91,10 @@ public class FrameTools
 
 				initListeners();
 
-				mnemonicCode.setText("00000541");
-				mnemonicName.setText("ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮйцукенгшщзхъфывапролджэячсмитьбю");
-				oktmo.setText("50701000");
-				cryptoProJcpTokenPassword.setText("1");
+				//mnemonicCode.setText("00000541");
+				//mnemonicName.setText("ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮйцукенгшщзхъфывапролджэячсмитьбю");
+				//oktmo.setText("50701000");
+				//cryptoProJcpTokenPassword.setText("1");
 
 				rootFrame.setVisible(true);
 			}
@@ -130,7 +130,7 @@ public class FrameTools
 									privateKey = KeyStoreTools.getCryptoProJcpPrivateKey();
 
 									FilesHandler.startSigning(new File(FilesHandler.soapsFolderLabel).listFiles()); // погнали подписывать
-									JOptionPane.showMessageDialog(null, "Done!");
+									JOptionPane.showMessageDialog(null, "Я ленивая жопа!");
 								}
 						}
 				});
